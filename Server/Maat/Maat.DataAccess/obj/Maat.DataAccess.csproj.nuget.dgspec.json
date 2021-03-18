@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj": {}
+    "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj": {
+    "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj",
         "projectName": "Maat.DataAccess",
-        "projectPath": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj",
+        "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj",
         "packagesPath": "C:\\Users\\Marius\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Marius\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj": {
-                "projectPath": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj"
+              "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj": {
+                "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj"
               }
             }
           }
@@ -82,18 +82,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj": {
+    "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj",
         "projectName": "Maat.Domain",
-        "projectPath": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj",
+        "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj",
         "packagesPath": "C:\\Users\\Marius\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Marius\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -136,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

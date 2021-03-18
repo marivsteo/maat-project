@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "U/GaeAHQROPuTsmEkBZ+xgCbV3pRnS2iLNZaRHxFjQJl63FSVLHhACZWTHi9nlOnilPVJwO65NmWIf5dN7VpUA==",
+  "dgSpecHash": "bbGchX6Mki41y74/xGcK3i4s3/A+ZeHnmIMkduidhs3U9nrnZkp+R9SazBVRkHrAWuZfYDfcJulh6ArIijkBGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

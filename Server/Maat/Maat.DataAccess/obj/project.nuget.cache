@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2X7oyAJUUHhf1LRT67Mfm5cJ6YkT0b6LuLH+So/6Mm8861rvEnN76wgmz5vjgTmQDaV/y+eNdE5p9tsSTMsyMg==",
+  "dgSpecHash": "umk45850Gq0O3w8CwauioKDlJpdRbwTX+AXIbdNIlAAaf4LRx+s02UNvv4xc02GK1Mjwe/VtbaMyYeALHybFnA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marius\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Marius\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

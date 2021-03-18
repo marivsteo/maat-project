@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uHulBP1dEuSjUtDRKVKsctV8geELMf71ecF4gpHBWPJilHCXj0CJQRf/1PAHTGsXJ6otEM319ZMWRyOqd7X2XA==",
+  "dgSpecHash": "5a0qhNxeiR9rfmviK7hI1izsPdFNlIONXfYFNg3/jDJAcQZSeP3vtjxLx4OAvUHDPr2+beReRk9TmMtR7Jpb1g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.API\\Maat.API.csproj",
+  "projectFilePath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.API\\Maat.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marius\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Marius\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\5.0.3\\microsoft.aspnetcore.diagnostics.entityframeworkcore.5.0.3.nupkg.sha512",

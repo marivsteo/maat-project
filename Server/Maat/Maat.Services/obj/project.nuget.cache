@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HfPOl4/AZ7Mp70i4uz3VBpVFkDrjfQ0HdkBua98vOt7mOxCoFg2jMXTtRz/nmVOB9WUU9iXBFL7AQHmjtynMXw==",
+  "dgSpecHash": "03goeanK/t2vVX/0LyrRMCFDXMQaHc9HDr/XrkNpKaCEU4Uh+P4kkh8t1rC43h/fjITksR8xviNyE9PZi/dYDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marius\\Desktop\\Licenta\\Server\\Maat\\Maat.Services\\Maat.Services.csproj",
+  "projectFilePath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Services\\Maat.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marius\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Marius\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
