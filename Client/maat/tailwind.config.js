@@ -13,7 +13,10 @@ module.exports = {
 			}),
 			colors: {
 				primary: "#fa255e",
-				secondary: "#c39ea0",
+				secondary: {
+					400: "#caa9ab",
+					500: "#c39ea0",
+				},
 				third: "#f8e5e5",
 				fourth: "#000000",
 			},
@@ -22,5 +25,5 @@ module.exports = {
 	variants: {
 		extend: {},
 	},
-	plugins: [require("tailwindcss-font-inter")()],
+	plugins: [require("tailwindcss-font-inter")(), require("@tailwindcss/forms")],
 };

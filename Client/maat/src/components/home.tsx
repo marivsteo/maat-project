@@ -1,5 +1,6 @@
 import Header from "./header";
-import bg from "./images/composition-1.svg";
+import bg from "../images/composition-1.svg";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Home() {
 	return (
@@ -15,6 +16,8 @@ export default function Home() {
 					>
 						<polygon points="50,0 100,0 50,100 0,100" />
 					</svg>
+
+					<Header></Header>
 
 					<main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
 						<div className="sm:text-center lg:text-left">
@@ -36,20 +39,20 @@ export default function Home() {
 							</p>
 							<div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
 								<div className="rounded-md shadow">
-									<a
-										href="#"
+									<NavLink
+										to="/signup"
 										className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-white hover:text-primary md:py-4 md:text-lg md:px-10 transition-hover duration-500"
 									>
 										Get started
-									</a>
+									</NavLink>
 								</div>
 								<div className="mt-3 sm:mt-0 sm:ml-3">
-									<a
-										href="#"
+									<NavLink
+										to="/about"
 										className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-black bg-gray-200 hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition duration-500"
 									>
 										Learn more
-									</a>
+									</NavLink>
 								</div>
 							</div>
 						</div>

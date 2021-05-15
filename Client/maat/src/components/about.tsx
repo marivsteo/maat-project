@@ -8,7 +8,6 @@ import {
 	CursorClickIcon,
 } from "@heroicons/react/outline";
 import Header from "./header";
-import feather from "./images/feather.svg";
 
 const features = [
 	{
@@ -40,6 +39,7 @@ const features = [
 export default function About() {
 	return (
 		<div className="font-inter">
+			<Header></Header>
 			<div className="py-12 bg-white">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">
@@ -52,7 +52,16 @@ export default function About() {
 							find suitable partners for their sporting activities.
 						</p>
 					</div>
-
+					<div className="lg:text-left mt-10 mb-20">
+						<div className="flex flex-row">
+							<p className="mt-4 max-w-5xl text-xl text-gray-500 lg:mx-auto">
+								We believe that humans should be active and socialize in order to stay healthy. And we
+								know it's sometimes boring to exercise or run alone. And it just sucks to play football
+								when there aren't an even number of players or tennis by yourself. This is why we
+								created Ma'at.
+							</p>
+						</div>
+					</div>
 					<div className="mt-10">
 						<dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
 							{features.map((feature) => (
@@ -69,22 +78,6 @@ export default function About() {
 								</div>
 							))}
 						</dl>
-					</div>
-
-					<div className="lg:text-left mt-40">
-						<div className="flex flex-col">
-							<img
-								className="h-20 w-20 object-cover sm:h-72 md:h-96 lg:w-20 lg:h-20"
-								src={feather}
-								alt=""
-							/>
-							<p className="mt-4 max-w-5xl text-xl text-gray-500 lg:mx-auto">
-								We believe that humans should be active and socialize in order to stay healthy. And we
-								know it's sometimes boring to exercise or run alone. And it just sucks to play football
-								when there aren't an even number of players or tennis by yourself. This is why we
-								created Ma'at.
-							</p>
-						</div>
 					</div>
 				</div>
 			</div>
