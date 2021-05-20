@@ -1,8 +1,12 @@
 import Header from "./header";
 import bg from "../images/composition-1.svg";
 import { Link, NavLink } from "react-router-dom";
+import { IUser } from "../interfaces/IUser";
+import { useState } from "react";
 
-export default function Home() {
+export default function Home(props: any) {
+	const [user, setUser] = useState<IUser>({ username: "", email: "", dateOfBirth: "", gender: -1 });
+
 	return (
 		<div className="relative bg-white overflow-hidden font-inter">
 			<div className="max-w-7xl mx-auto">
@@ -17,7 +21,7 @@ export default function Home() {
 						<polygon points="50,0 100,0 50,100 0,100" />
 					</svg>
 
-					<Header></Header>
+					<Header user={props.user} setUser={setUser}></Header>
 
 					<main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
 						<div className="sm:text-center lg:text-left">
@@ -38,14 +42,26 @@ export default function Home() {
 								start playing!
 							</p>
 							<div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-								<div className="rounded-md shadow">
-									<NavLink
-										to="/signup"
-										className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-white hover:text-primary md:py-4 md:text-lg md:px-10 transition-hover duration-500"
-									>
-										Get started
-									</NavLink>
-								</div>
+								{props.user.username === "" ? (
+									<div className="rounded-md shadow">
+										<NavLink
+											to="/signup"
+											className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-white hover:text-primary md:py-4 md:text-lg md:px-10 transition-hover duration-500"
+										>
+											Get started
+										</NavLink>
+									</div>
+								) : (
+									<div className="rounded-md shadow">
+										<NavLink
+											to="/events"
+											className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-white hover:text-primary md:py-4 md:text-lg md:px-10 transition-hover duration-500"
+										>
+											Check out events
+										</NavLink>
+									</div>
+								)}
+
 								<div className="mt-3 sm:mt-0 sm:ml-3">
 									<NavLink
 										to="/about"

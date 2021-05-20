@@ -1,5 +1,6 @@
 ﻿using Maat.API.Helpers;
 using Maat.Domain.DTO;
+using Maat.Domain.Enums;
 using Maat.Domain.Models;
 using Maat.Services.Abstractions;
 using Maat.Services.Exceptions;
@@ -34,7 +35,7 @@ namespace Maat.API.Controllers
                 Email = dto.Email,
                 Password =BCrypt.Net.BCrypt.HashPassword(dto.Password),
                 DateOfBirth = dto.DateOfBirth,
-                Gender = dto.Gender
+                Gender = (GenderEnum)dto.Gender
             };
 
             return Created("user created", _userService.CreateUser(user));

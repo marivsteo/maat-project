@@ -1,11 +1,97 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
 import Header from "./header";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Redirect } from "react-router-dom";
+import { SyntheticEvent, useState } from "react";
+import { GenderEnum } from "../enums/genderEnum";
+import { url } from "../resources/constants";
+import { IUser } from "../interfaces/IUser";
 
-export default function Signup() {
+export default function Signup(props: any) {
+	const [email, setEmail] = useState({
+		error: false,
+		value: "",
+	});
+	const [confirmEmail, setConfirmEmail] = useState({
+		error: false,
+		value: "",
+	});
+	const [username, setUsername] = useState({
+		error: false,
+		value: "",
+	});
+	const [password, setPassword] = useState({
+		error: false,
+		value: "",
+	});
+	const [dateOfBirth, setDateOfBirth] = useState({
+		error: false,
+		value: "",
+	});
+	const [gender, setGender] = useState({
+		error: false,
+		value: -1,
+	});
+	const [redirect, setRedirect] = useState(false);
+	const [user, setUser] = useState<IUser>({ username: "", email: "", dateOfBirth: "", gender: -1 });
+
+	function onChangeGender(event: any) {
+		setGender({ value: event.target.value, error: gender.error });
+	}
+
+	function checkValues(): boolean {
+		if (email.value === "") {
+			setEmail({ error: true, value: email.value });
+			return false;
+		}
+		if (confirmEmail.value !== email.value) {
+			setConfirmEmail({ error: true, value: confirmEmail.value });
+			return false;
+		}
+		if (password.value === "") {
+			setPassword({ error: true, value: password.value });
+			return false;
+		}
+		if (username.value === "") {
+			setUsername({ error: true, value: username.value });
+			return false;
+		}
+		if (dateOfBirth.value === "") {
+			setDateOfBirth({ error: true, value: dateOfBirth.value });
+			return false;
+		}
+		if (gender.value === -1) {
+			setGender({ error: true, value: gender.value });
+			return false;
+		}
+		return true;
+	}
+
+	const submit = async (e: SyntheticEvent) => {
+		e.preventDefault();
+		if (checkValues() === true) {
+			await fetch(`${url}/auth/register`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					username: username.value,
+					email: email.value,
+					password: password.value,
+					dateofbirth: dateOfBirth.value,
+					gender: gender.value,
+				}),
+			});
+
+			setRedirect(true);
+		}
+	};
+
+	if (redirect) {
+		return <Redirect to="/login" />;
+	}
+
 	return (
 		<div className="min-h-screen mb-20">
-			<Header></Header>
+			<Header user={props.user} setUser={setUser}></Header>
 			<div className="font-inter mt-10 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 				<div className="max-w-md w-full space-y-8">
 					<div>
@@ -28,7 +114,7 @@ export default function Signup() {
 							</NavLink>
 						</p>
 					</div>
-					<form className="mt-8 space-y-6" action="#" method="POST">
+					<form className="mt-8 space-y-6" onSubmit={submit}>
 						<input type="hidden" name="remember" defaultValue="true" />
 						<div className="rounded-md">
 							<div className="mb-4">
@@ -41,10 +127,20 @@ export default function Signup() {
 									required
 									className="mt-2 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-secondary-400 focus:border-secondary-500 focus:z-10 sm:text-sm"
 									placeholder="Enter your email."
+									onChange={(e) => setEmail({ value: e.target.value, error: email.error })}
+									onBlur={(e) => {
+										if (e.target.value === "") {
+											setEmail({ value: email.value, error: true });
+										} else {
+											setEmail({ value: email.value, error: false });
+										}
+									}}
 								/>
-								<span className="text-xs text-red-600" id="passwordHelp">
-									You need to enter your email.
-								</span>
+								{email.error === true ? (
+									<span className="text-xs text-red-600" id="passwordHelp">
+										You need to enter your email.
+									</span>
+								) : null}
 							</div>
 							<div className="mb-4">
 								<label htmlFor="email-address">Confirm your email</label>
@@ -56,10 +152,22 @@ export default function Signup() {
 									required
 									className="mt-2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-400 focus:border-secondary-500 focus:z-10 sm:text-sm"
 									placeholder="Enter your email again."
+									onChange={(e) =>
+										setConfirmEmail({ value: e.target.value, error: confirmEmail.error })
+									}
+									onBlur={(e) => {
+										if (e.target.value !== email.value) {
+											setConfirmEmail({ value: confirmEmail.value, error: true });
+										} else {
+											setConfirmEmail({ value: confirmEmail.value, error: false });
+										}
+									}}
 								/>
-								<span className="text-xs text-red-600" id="passwordHelp">
-									The email addresses don't match.
-								</span>
+								{confirmEmail.error === true && confirmEmail !== email ? (
+									<span className="text-xs text-red-600" id="passwordHelp">
+										The email addresses don't match.
+									</span>
+								) : null}
 							</div>
 							<div className="mb-4">
 								<label htmlFor="password">Create a password</label>
@@ -71,10 +179,20 @@ export default function Signup() {
 									required
 									className="mt-2 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-secondary-400 focus:border-secondary-500 focus:z-10 sm:text-sm"
 									placeholder="Create a password."
+									onChange={(e) => setPassword({ value: e.target.value, error: password.error })}
+									onBlur={(e) => {
+										if (e.target.value === "") {
+											setPassword({ value: password.value, error: true });
+										} else {
+											setPassword({ value: password.value, error: false });
+										}
+									}}
 								/>
-								<span className="text-xs text-red-600" id="passwordHelp">
-									You need to enter a password.
-								</span>
+								{password.error === true ? (
+									<span className="text-xs text-red-600" id="passwordHelp">
+										You need to enter a password.
+									</span>
+								) : null}
 							</div>
 							<div className="mb-4">
 								<label htmlFor="profile-name" className="mb-4">
@@ -83,14 +201,24 @@ export default function Signup() {
 								<input
 									id="profile-name"
 									name="profileName"
-									type="email"
+									type="text"
 									required
 									className="mt-2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-400 focus:border-secondary-500 focus:z-10 sm:text-sm"
 									placeholder="Enter a username."
+									onChange={(e) => setUsername({ value: e.target.value, error: username.error })}
+									onBlur={(e) => {
+										if (e.target.value === "") {
+											setUsername({ value: username.value, error: true });
+										} else {
+											setUsername({ value: username.value, error: false });
+										}
+									}}
 								/>
-								<span className="text-xs text-red-600" id="passwordHelp">
-									Enter a username.
-								</span>
+								{username.error === true ? (
+									<span className="text-xs text-red-600" id="passwordHelp">
+										Enter a username.
+									</span>
+								) : null}
 							</div>
 							<div className="mb-4">
 								<label htmlFor="birthday">What's your birth date?</label>
@@ -98,22 +226,36 @@ export default function Signup() {
 									id="birthday"
 									name="birthday"
 									type="date"
+									max={Date.now.toString()}
 									required
 									className="mt-2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-400 focus:border-secondary-500 focus:z-10 sm:text-sm"
 									placeholder="Enter a username."
+									onChange={(e) =>
+										setDateOfBirth({ value: e.target.value, error: dateOfBirth.error })
+									}
+									onBlur={(e) => {
+										if (e.target.value === "") {
+											setDateOfBirth({ value: dateOfBirth.value, error: true });
+										} else {
+											setDateOfBirth({ value: dateOfBirth.value, error: false });
+										}
+									}}
 								/>
-								<span className="text-xs text-red-600" id="passwordHelp">
-									Enter a valid date of birth.
-								</span>
+								{dateOfBirth.error === true ? (
+									<span className="text-xs text-red-600" id="passwordHelp">
+										Enter a valid date of birth.
+									</span>
+								) : null}
 							</div>
 							<div className="mb-4">
 								<label htmlFor="gender">What's your gender?</label>
-								<div className="flex-row mt-2">
+								<div className="flex-row mt-2" onChange={(e) => onChangeGender(e)}>
 									<input
 										id="gender"
 										name="gender"
 										type="radio"
 										required
+										value={GenderEnum.Male}
 										className="mr-2 appearance-none rounded-full relative border border-gray-300 placeholder-gray-500 text-primary focus:outline-none focus:ring-secondary-400 focus:border-secondary-500 focus:z-10 sm:text-sm"
 									/>
 									<label htmlFor="gender">Male</label>
@@ -122,19 +264,22 @@ export default function Signup() {
 										name="gender"
 										type="radio"
 										required
+										value={GenderEnum.Female}
 										className="mr-2 ml-4 appearance-none rounded-full relative border border-gray-300 placeholder-gray-500 text-primary focus:outline-none focus:ring-secondary-400 focus:border-secondary-500 focus:z-10 sm:text-sm"
 									/>
 									<label htmlFor="gender">Female</label>
 								</div>
-								<span className="text-xs text-red-600" id="passwordHelp">
-									Select your gender.
-								</span>
+								{gender.value === -1 ? (
+									<span className="text-xs text-red-600" id="passwordHelp">
+										Select your gender.
+									</span>
+								) : null}
 							</div>
 						</div>
 						<div>
 							<button
 								type="submit"
-								className="text-base shadow group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-hover duration-500"
+								className="text-base shadow group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-hover duration-500"
 							>
 								<span className="absolute left-0 inset-y-0 flex items-center pl-3">
 									<LockClosedIcon

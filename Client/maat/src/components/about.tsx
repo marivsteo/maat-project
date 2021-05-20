@@ -7,6 +7,8 @@ import {
 	FlagIcon,
 	CursorClickIcon,
 } from "@heroicons/react/outline";
+import { useState } from "react";
+import { IUser } from "../interfaces/IUser";
 import Header from "./header";
 
 const features = [
@@ -36,10 +38,12 @@ const features = [
 	},
 ];
 
-export default function About() {
+export default function About(props: any) {
+	const [user, setUser] = useState<IUser>({ username: "", email: "", dateOfBirth: "", gender: -1 });
+
 	return (
 		<div className="font-inter">
-			<Header></Header>
+			<Header user={props.user} setUser={setUser}></Header>
 			<div className="py-12 bg-white">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">

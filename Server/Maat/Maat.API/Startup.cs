@@ -31,6 +31,7 @@ namespace Maat.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
 
             services.AddControllers();
 
@@ -41,7 +42,6 @@ namespace Maat.API
             services.AddScoped<ISportEventService, SportEventService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<JwtService>();
-            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,15 +52,9 @@ namespace Maat.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder =>
-                builder.AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-            );
-
             dbContext.Database.Migrate();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

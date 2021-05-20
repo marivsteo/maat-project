@@ -17,6 +17,6 @@ namespace Maat.Domain.DTO
 
         public DateTime DateOfBirth { get; set; }
 
-        public GenderEnum Gender { get; set; }
+        public int Gender { get; set; }
     }
 }

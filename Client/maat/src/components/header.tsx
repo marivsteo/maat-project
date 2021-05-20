@@ -2,15 +2,42 @@ import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import React, { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { GenderEnum } from "../enums/genderEnum";
+import { IUser } from "../interfaces/IUser";
+import { url } from "../resources/constants";
 
-const navigation = [
+let navigation = [
 	{ name: "Events", href: "/events" },
 	{ name: "Profile", href: "/profile" },
 	{ name: "About", href: "/about" },
 	{ name: "Sign up", href: "/signup" },
 ];
 
-export default function Header() {
+export default function Header(props: { user: IUser; setUser: (user: IUser) => void }) {
+	if (props.user.username !== "") {
+		navigation = [
+			{ name: "Events", href: "/events" },
+			{ name: "Profile", href: "/profile" },
+			{ name: "About", href: "/about" },
+		];
+	} else {
+		navigation = [
+			{ name: "Events", href: "/events" },
+			{ name: "About", href: "/about" },
+			{ name: "Sign up", href: "/signup" },
+		];
+	}
+
+	const logout = async () => {
+		await fetch(`${url}/auth/logout`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			credentials: "include",
+		});
+
+		props.setUser({ username: "", email: "", dateOfBirth: "", gender: -1 });
+	};
+
 	return (
 		<Popover className="z-50">
 			{({ open }) => (
@@ -54,12 +81,22 @@ export default function Header() {
 										{item.name}
 									</NavLink>
 								))}
-								<NavLink
-									to="/login"
-									className="font-medium text-primary hover:text-secondary transition-hover duration-500"
-								>
-									Log in
-								</NavLink>
+								{props.user.username !== "" ? (
+									<NavLink
+										to="/login"
+										className="font-medium text-primary hover:text-secondary transition-hover duration-500"
+										onClick={logout}
+									>
+										Log out
+									</NavLink>
+								) : (
+									<NavLink
+										to="/login"
+										className="font-medium text-primary hover:text-secondary transition-hover duration-500"
+									>
+										Log in
+									</NavLink>
+								)}
 							</div>
 						</nav>
 					</div>
@@ -113,12 +150,22 @@ export default function Header() {
 										</NavLink>
 									))}
 								</div>
-								<NavLink
-									to="/login"
-									className="block w-full px-5 py-3 text-center font-medium text-primary bg-gray-50 hover:bg-gray-100"
-								>
-									Log in
-								</NavLink>
+								{props.user.username !== "" ? (
+									<NavLink
+										to="/login"
+										className="block w-full px-5 py-3 text-center font-medium text-primary bg-gray-50 hover:bg-gray-100"
+										onClick={logout}
+									>
+										Log out
+									</NavLink>
+								) : (
+									<NavLink
+										to="/login"
+										className="block w-full px-5 py-3 text-center font-medium text-white bg-primary hover:bg-secondary-500 transition-hover duration-300"
+									>
+										Log in
+									</NavLink>
+								)}
 							</div>
 						</Popover.Panel>
 					</Transition>
