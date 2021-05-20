@@ -43,7 +43,6 @@ export default function About(props: any) {
 
 	return (
 		<div className="font-inter">
-			<Header user={props.user} setUser={setUser}></Header>
 			<div className="py-12 bg-white">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">

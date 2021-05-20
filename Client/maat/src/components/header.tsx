@@ -39,7 +39,7 @@ export default function Header(props: { user: IUser; setUser: (user: IUser) => v
 	};
 
 	return (
-		<Popover className="z-50">
+		<Popover className="">
 			{({ open }) => (
 				<>
 					<div className="relative pt-6 px-4 sm:px-6 lg:px-8">
@@ -114,7 +114,7 @@ export default function Header(props: { user: IUser; setUser: (user: IUser) => v
 						<Popover.Panel
 							focus
 							static
-							className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+							className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-50"
 						>
 							<div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
 								<div className="px-5 pt-4 flex items-center justify-between">

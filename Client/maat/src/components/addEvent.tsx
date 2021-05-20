@@ -7,7 +7,6 @@ export default function AddEvent(props: any) {
 
 	return (
 		<div>
-			<Header user={props.user} setUser={setUser}></Header>
 			<div className="mt-10 font-inter mx-10">
 				<div className="md:grid md:grid-cols-3 md:gap-6">
 					<div className="md:col-span-1">

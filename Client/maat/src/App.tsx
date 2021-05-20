@@ -35,6 +35,7 @@ function App() {
 
 	return (
 		<div>
+			<Header user={user} setUser={setUser} />
 			<Switch>
 				<Route path="/" exact>
 					<Home user={user} />

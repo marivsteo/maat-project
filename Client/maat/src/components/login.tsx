@@ -63,7 +63,6 @@ export default function Login(props: { user: any; setUser: (user: IUser) => void
 
 	return (
 		<div className="min-h-screen mb-20">
-			<Header user={props.user} setUser={setUser}></Header>
 			{loginError === true ? (
 				<div className="bg-white text-center py-4 lg:px-4">
 					<div
