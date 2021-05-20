@@ -1,3 +1,4 @@
+using Maat.API.Helpers;
 using Maat.DataAccess;
 using Maat.Services;
 using Maat.Services.Abstractions;
@@ -38,6 +39,8 @@ namespace Maat.API
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddScoped<ISportEventService, SportEventService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<JwtService>();
             services.AddCors();
         }
 
@@ -60,6 +63,13 @@ namespace Maat.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(options => options
+                .WithOrigins(new[] { "http://localhost:3000" })
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials()
+            );
 
             app.UseAuthorization();
 

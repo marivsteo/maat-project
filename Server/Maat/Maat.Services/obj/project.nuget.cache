@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "03goeanK/t2vVX/0LyrRMCFDXMQaHc9HDr/XrkNpKaCEU4Uh+P4kkh8t1rC43h/fjITksR8xviNyE9PZi/dYDQ==",
+  "dgSpecHash": "NRinTDq/jS2d0dYTap6DHQJdnTrJrzn/MDfLzlKvE0difp2CVRPQd0WA1+V/xqSPp3UMnxqUyFlQBYn6czhUew==",
   "success": true,
   "projectFilePath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Services\\Maat.Services.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Marius\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\Marius\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Marius\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Marius\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

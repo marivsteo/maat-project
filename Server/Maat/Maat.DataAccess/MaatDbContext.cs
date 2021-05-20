@@ -14,6 +14,8 @@ namespace Maat.DataAccess
 
         public DbSet<SportEvent> SportEvents { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SportEvent>().HasData(
@@ -23,6 +25,8 @@ namespace Maat.DataAccess
                     Name = "Football",
                     IsAvailable = true
                 });
+
+            modelBuilder.Entity<User>(entity => { entity.HasIndex(e => e.Email).IsUnique(); });
         }
     }
 }

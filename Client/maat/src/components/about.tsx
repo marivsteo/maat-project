@@ -52,7 +52,7 @@ export default function About() {
 							find suitable partners for their sporting activities.
 						</p>
 					</div>
-					<div className="lg:text-left mt-10 mb-20">
+					<div className="lg:text-left mt-10 mb-10">
 						<div className="flex flex-row">
 							<p className="mt-4 max-w-5xl text-xl text-gray-500 lg:mx-auto">
 								We believe that humans should be active and socialize in order to stay healthy. And we
@@ -62,12 +62,20 @@ export default function About() {
 							</p>
 						</div>
 					</div>
+					<div className="lg:text-left mt-10 mb-20">
+						<div className="flex flex-row">
+							<p className="mt-4 max-w-5xl text-xl text-gray-500 lg:mx-auto">
+								The Goddess Maʽat is the embodiment of the Ancient Egyptian Seven Principles of Ma’at
+								which are Truth, Balance, Order, Harmony, Righteousness, Morality, and Justice.
+							</p>
+						</div>
+					</div>
 					<div className="mt-10">
 						<dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
 							{features.map((feature) => (
 								<div key={feature.name} className="relative">
 									<dt>
-										<div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-secondary text-white">
+										<div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-secondary text-white bg-secondary-500">
 											<feature.icon className="h-6 w-6" aria-hidden="true" />
 										</div>
 										<p className="ml-16 text-lg leading-6 font-medium text-gray-900">

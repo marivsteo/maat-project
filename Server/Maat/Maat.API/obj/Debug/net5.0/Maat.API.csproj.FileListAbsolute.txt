@@ -150,3 +150,4 @@ C:\Users\Marius\Desktop\bachelor thesis\App\Server\Maat\Maat.API\obj\Debug\net5.
 C:\Users\Marius\Desktop\bachelor thesis\App\Server\Maat\Maat.API\obj\Debug\net5.0\ref\Maat.API.dll
 C:\Users\Marius\Desktop\bachelor thesis\App\Server\Maat\Maat.API\obj\Debug\net5.0\Maat.API.pdb
 C:\Users\Marius\Desktop\bachelor thesis\App\Server\Maat\Maat.API\obj\Debug\net5.0\Maat.API.genruntimeconfig.cache
+C:\Users\Marius\Desktop\bachelor thesis\App\Server\Maat\Maat.API\bin\Debug\net5.0\BCrypt.Net-Next.dll
