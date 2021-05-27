@@ -1,4 +1,4 @@
-import { LockClosedIcon } from "@heroicons/react/solid";
+import { LockClosedIcon, LockOpenIcon } from "@heroicons/react/solid";
 import Header from "./header";
 import { Link, NavLink, Redirect } from "react-router-dom";
 import { SyntheticEvent, useState } from "react";
@@ -6,7 +6,7 @@ import { GenderEnum } from "../enums/genderEnum";
 import { url } from "../resources/constants";
 import { IUser } from "../interfaces/IUser";
 
-export default function Signup(props: any) {
+export default function Signup() {
 	const [email, setEmail] = useState({
 		error: false,
 		value: "",
@@ -32,7 +32,7 @@ export default function Signup(props: any) {
 		value: -1,
 	});
 	const [redirect, setRedirect] = useState(false);
-	const [user, setUser] = useState<IUser>({ username: "", email: "", dateOfBirth: "", gender: -1 });
+	const [signupError, setSignupError] = useState(false);
 
 	function onChangeGender(event: any) {
 		setGender({ value: event.target.value, error: gender.error });
@@ -66,10 +66,30 @@ export default function Signup(props: any) {
 		return true;
 	}
 
+	function checkError(): boolean {
+		if (
+			email.error ||
+			confirmEmail.error ||
+			password.error ||
+			username.error ||
+			dateOfBirth.error ||
+			gender.error ||
+			email.value === "" ||
+			confirmEmail.value !== email.value ||
+			password.value === "" ||
+			username.value === "" ||
+			dateOfBirth.value === "" ||
+			gender.value === -1
+		) {
+			return true;
+		}
+		return false;
+	}
+
 	const submit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 		if (checkValues() === true) {
-			await fetch(`${url}/auth/register`, {
+			const response = await fetch(`${url}/auth/register`, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
@@ -81,7 +101,11 @@ export default function Signup(props: any) {
 				}),
 			});
 
-			setRedirect(true);
+			if (response.status === 409) {
+				setSignupError(true);
+			} else {
+				setRedirect(true);
+			}
 		}
 	};
 
@@ -91,6 +115,21 @@ export default function Signup(props: any) {
 
 	return (
 		<div className="min-h-screen mb-20">
+			{signupError === true ? (
+				<div className="bg-white text-center py-4 lg:px-4">
+					<div
+						className="p-2 bg-red-500 items-center text-white leading-none lg:rounded-full flex lg:inline-flex"
+						role="alert"
+					>
+						<span className="flex rounded-full bg-red-200 uppercase px-2 py-1 text-xs font-bold mr-3 text-black">
+							Error
+						</span>
+						<span className="font-semibold mr-2 text-left flex-auto">
+							An user with this email already exists.
+						</span>
+					</div>
+				</div>
+			) : null}
 			<div className="font-inter mt-10 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 				<div className="max-w-md w-full space-y-8">
 					<div>
@@ -280,12 +319,21 @@ export default function Signup(props: any) {
 								type="submit"
 								className="text-base shadow group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-hover duration-500"
 							>
-								<span className="absolute left-0 inset-y-0 flex items-center pl-3">
-									<LockClosedIcon
-										className="h-5 w-5 text-white group-hover:text-primary transition-hover duration-500"
-										aria-hidden="true"
-									/>
-								</span>
+								{checkError() ? (
+									<span className="absolute left-0 inset-y-0 flex items-center pl-3">
+										<LockClosedIcon
+											className="h-5 w-5 text-white group-hover:text-primary transition-hover duration-500"
+											aria-hidden="true"
+										/>
+									</span>
+								) : (
+									<span className="absolute left-0 inset-y-0 flex items-center pl-3">
+										<LockOpenIcon
+											className="h-5 w-5 text-white group-hover:text-primary transition-hover duration-500"
+											aria-hidden="true"
+										/>
+									</span>
+								)}
 								Create account
 							</button>
 						</div>

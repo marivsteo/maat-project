@@ -6,15 +6,10 @@ import { GenderEnum } from "../enums/genderEnum";
 import { IUser } from "../interfaces/IUser";
 import { url } from "../resources/constants";
 
-let navigation = [
-	{ name: "Events", href: "/events" },
-	{ name: "Profile", href: "/profile" },
-	{ name: "About", href: "/about" },
-	{ name: "Sign up", href: "/signup" },
-];
+let navigation = [{ name: "Events", href: "/events" }];
 
-export default function Header(props: { user: IUser; setUser: (user: IUser) => void }) {
-	if (props.user.username !== "") {
+export default function Header(props: { username: string; setUsername: (username: string) => void }) {
+	if (props.username !== "" && props.username !== undefined) {
 		navigation = [
 			{ name: "Events", href: "/events" },
 			{ name: "Profile", href: "/profile" },
@@ -35,7 +30,7 @@ export default function Header(props: { user: IUser; setUser: (user: IUser) => v
 			credentials: "include",
 		});
 
-		props.setUser({ username: "", email: "", dateOfBirth: "", gender: -1 });
+		props.setUsername("");
 	};
 
 	return (
@@ -81,7 +76,7 @@ export default function Header(props: { user: IUser; setUser: (user: IUser) => v
 										{item.name}
 									</NavLink>
 								))}
-								{props.user.username !== "" ? (
+								{props.username !== "" && props.username !== undefined ? (
 									<NavLink
 										to="/login"
 										className="font-medium text-primary hover:text-secondary transition-hover duration-500"
@@ -150,7 +145,7 @@ export default function Header(props: { user: IUser; setUser: (user: IUser) => v
 										</NavLink>
 									))}
 								</div>
-								{props.user.username !== "" ? (
+								{props.username !== "" && props.username !== undefined ? (
 									<NavLink
 										to="/login"
 										className="block w-full px-5 py-3 text-center font-medium text-primary bg-gray-50 hover:bg-gray-100"

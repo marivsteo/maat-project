@@ -14,12 +14,7 @@ import { IUser } from "./interfaces/IUser";
 import { url } from "./resources/constants";
 
 function App() {
-	const [user, setUser] = useState<IUser>({
-		username: "",
-		email: "",
-		dateOfBirth: "",
-		gender: -1,
-	});
+	const [username, setUsername] = useState("");
 
 	useEffect(() => {
 		(async () => {
@@ -29,34 +24,34 @@ function App() {
 			});
 
 			const content = await response.json();
-			setUser(content);
+			setUsername(content.username);
 		})();
 	});
 
 	return (
 		<div>
-			<Header user={user} setUser={setUser} />
+			<Header username={username} setUsername={setUsername} />
 			<Switch>
 				<Route path="/" exact>
-					<Home user={user} />
+					<Home username={username} />
 				</Route>
 				<Route path="/about" exact>
-					<About user={user} />
+					<About />
 				</Route>
 				<Route path="/signup" exact>
-					<Signup user={user} />
+					<Signup />
 				</Route>
 				<Route path="/login" exact>
-					<Login user={user} setUser={setUser} />
+					<Login setUsername={setUsername} />
 				</Route>
 				<Route path="/events" exact>
-					<Events user={user} />
+					<Events username={username} />
 				</Route>
 				<Route path="/profile" exact>
-					<Profile user={user} />
+					<Profile />
 				</Route>
 				<Route path="/add_event" exact>
-					<AddEvent user={user} />
+					<AddEvent />
 				</Route>
 				<Route component={Error} />
 			</Switch>

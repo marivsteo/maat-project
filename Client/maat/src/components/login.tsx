@@ -4,7 +4,7 @@ import { SyntheticEvent, useState } from "react";
 import { url } from "../resources/constants";
 import { IUser } from "../interfaces/IUser";
 
-export default function Login(props: { user: any; setUser: (user: IUser) => void }) {
+export default function Login(props: { setUsername: (username: string) => void }) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [emailError, setEmailError] = useState(false);
@@ -38,27 +38,22 @@ export default function Login(props: { user: any; setUser: (user: IUser) => void
 					email,
 					password,
 				}),
-			}).then(async (response) => {
-				const content = await response.json();
-				if (response.status === 200) {
-					props.setUser(content);
-					setRedirect(true);
-				} else if (response.status === 400) {
-					setLoginError(true);
-				}
 			});
+
+			if (response.status === 400) {
+				setLoginError(true);
+				props.setUsername("");
+			} else if (response.status === 200) {
+				const content = await response.json();
+				props.setUsername(content.username);
+
+				setRedirect(true);
+			}
 		}
 	};
 
 	if (redirect) {
-		return (
-			<Redirect
-				to={{
-					pathname: "/events",
-					state: { user: props.user },
-				}}
-			/>
-		);
+		return <Redirect to="/" />;
 	}
 
 	return (

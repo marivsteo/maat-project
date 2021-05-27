@@ -2,9 +2,7 @@ import { useState } from "react";
 import { IUser } from "../interfaces/IUser";
 import Header from "./header";
 
-export default function AddEvent(props: any) {
-	const [user, setUser] = useState<IUser>({ username: "", email: "", dateOfBirth: "", gender: -1 });
-
+export default function AddEvent() {
 	return (
 		<div>
 			<div className="mt-10 font-inter mx-10">

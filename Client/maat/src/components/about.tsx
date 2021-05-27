@@ -38,9 +38,7 @@ const features = [
 	},
 ];
 
-export default function About(props: any) {
-	const [user, setUser] = useState<IUser>({ username: "", email: "", dateOfBirth: "", gender: -1 });
-
+export default function About() {
 	return (
 		<div className="font-inter">
 			<div className="py-12 bg-white">

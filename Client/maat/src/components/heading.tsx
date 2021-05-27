@@ -17,18 +17,18 @@ function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(" ");
 }
 
-export default function Heading(props: any) {
+export default function Heading(props: { username: string }) {
 	return (
 		<div className="lg:flex lg:items-center lg:justify-between font-inter mt-10 mx-10">
 			<div className="flex-1 min-w-0">
 				<h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
 					Available events
-					{props.username ? " for " + props.username : ""}
+					{props.username !== undefined && props.username !== "" ? " for " + props.username : ""}
 				</h2>
 				<div className="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
 					<div className="mt-2 flex items-center text-sm text-gray-500">
 						<IdentificationIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-						{props.username ? "Tailored for you" : "Great events"}
+						{props.username !== undefined && props.username !== "" ? "Tailored for you" : "Great events"}
 					</div>
 					<div className="mt-2 flex items-center text-sm text-gray-500">
 						<GlobeIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />

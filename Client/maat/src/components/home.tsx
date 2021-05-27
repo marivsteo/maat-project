@@ -4,9 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { IUser } from "../interfaces/IUser";
 import { useState } from "react";
 
-export default function Home(props: any) {
-	const [user, setUser] = useState<IUser>({ username: "", email: "", dateOfBirth: "", gender: -1 });
-
+export default function Home(props: { username: string }) {
 	return (
 		<div className="relative bg-white overflow-hidden font-inter z-10">
 			<div className="max-w-7xl mx-auto">
@@ -26,7 +24,7 @@ export default function Home(props: any) {
 							<h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
 								<span className="block xl:inline body">Find your perfect </span>
 								<span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary xl:inline">
-									sports partner
+									sports partner + events
 								</span>
 							</h1>
 							<p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
@@ -40,7 +38,7 @@ export default function Home(props: any) {
 								start playing!
 							</p>
 							<div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-								{props.user.username === "" ? (
+								{props.username === undefined || props.username === "" ? (
 									<div className="rounded-md shadow">
 										<NavLink
 											to="/signup"

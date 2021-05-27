@@ -37,8 +37,15 @@ namespace Maat.API.Controllers
                 DateOfBirth = dto.DateOfBirth,
                 Gender = (GenderEnum)dto.Gender
             };
-
-            return Created("user created", _userService.CreateUser(user));
+            try
+            {
+                return Created("user created", _userService.CreateUser(user));
+            }
+            catch (EmailAlreadyExistsException e)
+            {
+                return StatusCode(409);
+            }
+            
         }
 
         [HttpPost("login")]
@@ -86,7 +93,7 @@ namespace Maat.API.Controllers
             }
             catch(Exception e)
             {
-                return Unauthorized(e.Message);
+                return Unauthorized();
             }
         }
 

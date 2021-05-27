@@ -21,6 +21,11 @@ namespace Maat.Services
 
         public User CreateUser(User user)
         {
+            var existingUser = _dbContext.Users.FirstOrDefault(u => u.Email == user.Email);
+            if (existingUser != null)
+            {
+                throw new EmailAlreadyExistsException("An user with this email already exists!");
+            }
             _dbContext.Users.Add(user);
             user.Id = _dbContext.SaveChanges();
 
