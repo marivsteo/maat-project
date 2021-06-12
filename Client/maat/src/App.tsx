@@ -26,7 +26,7 @@ function App() {
 			const content = await response.json();
 			setUsername(content.username);
 		})();
-	});
+	}, []);
 
 	return (
 		<div>

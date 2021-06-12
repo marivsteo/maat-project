@@ -4,14 +4,16 @@ using Maat.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Maat.DataAccess.Migrations
 {
     [DbContext(typeof(MaatDbContext))]
-    partial class MaatDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210612120011_UpdatedSportEventFields")]
+    partial class UpdatedSportEventFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,8 +52,8 @@ namespace Maat.DataAccess.Migrations
                     b.Property<string>("Place")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SkillLevel")
-                        .HasColumnType("int");
+                    b.Property<string>("SkillLevel")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SportType")
                         .HasColumnType("int");
@@ -72,7 +74,6 @@ namespace Maat.DataAccess.Migrations
                             Name = "Football",
                             NumberOfParticipatingPlayers = 0,
                             NumberOfPlayersNeeded = 0,
-                            SkillLevel = 0,
                             SportType = 0
                         });
                 });
