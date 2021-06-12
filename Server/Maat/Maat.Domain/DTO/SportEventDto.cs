@@ -26,7 +26,5 @@ namespace Maat.Domain.DTO
         public SkillLevelEnum SkillLevel { get; set; }
 
         public SportTypeEnum SportType { get; set; }
-
-        public int CreatedBy { get; set; }
     }
 }

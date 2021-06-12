@@ -1,6 +1,7 @@
 ﻿using Maat.DataAccess;
 using Maat.Domain.Models;
 using Maat.Services.Abstractions;
+using Maat.Services.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,21 @@ namespace Maat.Services
         public List<SportEvent> GetSportEvents()
         {
             return _dbContext.SportEvents.ToList();
+        }
+
+        public SportEvent AddSportEvent(SportEvent sportEvent) {
+            try
+            {
+                _dbContext.SportEvents.Add(sportEvent);
+                sportEvent.Id = _dbContext.SaveChanges();
+                return sportEvent;
+            }
+            catch (Exception e)
+            {
+                throw new AddSportEventDbException(e.Message);
+            }
+            
+
         }
     }
 }

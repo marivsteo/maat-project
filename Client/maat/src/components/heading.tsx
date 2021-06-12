@@ -60,16 +60,18 @@ export default function Heading(props: { username: string }) {
 					</button>
 				</span>
 
-				<span className="sm:ml-3">
-					<NavLink
-						to="/add_event"
-						type="button"
-						className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow text-sm font-medium text-white bg-primary hover:bg-white hover:text-primary transition-hover duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-					>
-						<PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
-						Add event
-					</NavLink>
-				</span>
+				{props.username !== undefined && props.username !== "" ? (
+					<span className="sm:ml-3">
+						<NavLink
+							to="/add_event"
+							type="button"
+							className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow text-sm font-medium text-white bg-primary hover:bg-white hover:text-primary transition-hover duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+						>
+							<PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+							Add event
+						</NavLink>
+					</span>
+				) : null}
 
 				{/* Dropdown */}
 				<Menu as="span" className="ml-3 relative sm:hidden">

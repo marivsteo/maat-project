@@ -9,10 +9,14 @@ export default function AddEvent() {
 				<div className="md:grid md:grid-cols-3 md:gap-6">
 					<div className="md:col-span-1">
 						<div className="px-4 sm:px-0">
-							<h3 className="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
+							<h3 className="text-lg font-medium leading-6 text-gray-900">Your event information</h3>
 							<p className="mt-1 text-sm text-gray-600">
-								Use a permanent address where you can receive mail.
+								Please enter all the details about your event and don't forget to check twice.
 							</p>
+							<img
+								className="w-full md:block lg:block sm:hidden "
+								src={`/images/Open Doodles - FLoating.png`}
+							></img>
 						</div>
 					</div>
 					<div className="mt-5 md:mt-0 md:col-span-2">
@@ -25,14 +29,14 @@ export default function AddEvent() {
 												htmlFor="first_name"
 												className="block text-sm font-medium text-gray-700"
 											>
-												First name
+												What is the name of your event?
 											</label>
 											<input
 												type="text"
 												name="first_name"
 												id="first_name"
 												autoComplete="given-name"
-												className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+												className="mt-1 focus:ring-primary focus:border-primary block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
 											/>
 										</div>
 
@@ -41,14 +45,16 @@ export default function AddEvent() {
 												htmlFor="last_name"
 												className="block text-sm font-medium text-gray-700"
 											>
-												Last name
+												When does the event start?
 											</label>
 											<input
-												type="text"
-												name="last_name"
-												id="last_name"
-												autoComplete="family-name"
-												className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+												id="birthday"
+												name="birthday"
+												type="datetime-local"
+												max={Date.now.toString()}
+												required
+												className="mt-2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-400 focus:border-secondary-500 focus:z-10 sm:text-sm"
+												placeholder="Enter a username."
 											/>
 										</div>
 
@@ -57,49 +63,46 @@ export default function AddEvent() {
 												htmlFor="email_address"
 												className="block text-sm font-medium text-gray-700"
 											>
-												Email address
+												Where does it take place?
 											</label>
 											<input
 												type="text"
 												name="email_address"
 												id="email_address"
 												autoComplete="email"
-												className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+												className="mt-1 focus:ring-primary focus:border-primary block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
 											/>
 										</div>
 
-										<div className="col-span-6 sm:col-span-3">
+										<div className="col-span-6 sm:col-span-3 lg:col-span-2">
 											<label
 												htmlFor="country"
 												className="block text-sm font-medium text-gray-700"
 											>
-												Country / Region
-											</label>
-											<select
-												id="country"
-												name="country"
-												autoComplete="country"
-												className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-											>
-												<option>United States</option>
-												<option>Canada</option>
-												<option>Mexico</option>
-											</select>
-										</div>
-
-										<div className="col-span-6">
-											<label
-												htmlFor="street_address"
-												className="block text-sm font-medium text-gray-700"
-											>
-												Street address
+												How many people are already attending?
 											</label>
 											<input
-												type="text"
-												name="street_address"
-												id="street_address"
-												autoComplete="street-address"
-												className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+												type="number"
+												name="email_address"
+												id="email_address"
+												autoComplete="email"
+												className="mt-1 focus:ring-primary focus:border-primary block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+											/>
+										</div>
+
+										<div className="col-span-6 sm:col-span-3 lg:col-span-2">
+											<label
+												htmlFor="country"
+												className="block text-sm font-medium text-gray-700"
+											>
+												How many people are already attending?
+											</label>
+											<input
+												type="number"
+												name="email_address"
+												id="email_address"
+												autoComplete="email"
+												className="mt-1 focus:ring-primary focus:border-primary block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
 											/>
 										</div>
 
@@ -111,7 +114,7 @@ export default function AddEvent() {
 												type="text"
 												name="city"
 												id="city"
-												className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+												className="mt-1 focus:ring-primary focus:border-primary block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
 											/>
 										</div>
 
@@ -123,7 +126,7 @@ export default function AddEvent() {
 												type="text"
 												name="state"
 												id="state"
-												className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+												className="mt-1 focus:ring-primary focus:border-primary block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
 											/>
 										</div>
 
@@ -139,7 +142,7 @@ export default function AddEvent() {
 												name="postal_code"
 												id="postal_code"
 												autoComplete="postal-code"
-												className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+												className="mt-1 focus:ring-primary focus:border-primary block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
 											/>
 										</div>
 									</div>
@@ -147,7 +150,7 @@ export default function AddEvent() {
 								<div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
 									<button
 										type="submit"
-										className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+										className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-hover duration-500"
 									>
 										Save
 									</button>

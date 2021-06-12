@@ -8,9 +8,6 @@ module.exports = {
 			fontFamily: {
 				body: ["Inter"],
 			},
-			backgroundImage: (theme) => ({
-				"home-page": "url('/src/images/abigail-keenan-8-s5QuUBtyM-unsplash.jpg')",
-			}),
 			colors: {
 				primary: "#fa255e",
 				secondary: {

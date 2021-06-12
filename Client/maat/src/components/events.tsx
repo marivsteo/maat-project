@@ -25,11 +25,11 @@ export default function Events(props: any) {
 		<div>
 			<Heading username={props.username}></Heading>
 			<div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-1 mx-auto">
-				{events.map((event) => {
-					return <Event sportEvent={event}></Event>;
+				{events.map((event: ISportEvent) => {
+					return <Event key={event.name} sportEvent={event}></Event>;
 				})}
 			</div>
-			<Pagination></Pagination>
+			{/* <Pagination></Pagination> */}
 		</div>
 	);
 }

@@ -1,4 +1,3 @@
-import Football from "../images/abigail-keenan-8-s5QuUBtyM-unsplash.jpg";
 import {
 	CalendarIcon,
 	UserGroupIcon,
@@ -12,13 +11,17 @@ import {
 import { ISportEvent } from "../interfaces/ISportEvent";
 import { SkillLevelEnum } from "../enums/skillLevelEnum";
 import { SportTypeEnum } from "../enums/sportTypeEnum";
+import getImageByKey from "../utils/getImageByKey";
 
 export default function Event(props: { sportEvent: ISportEvent }) {
 	return (
 		<div className="mx-3 my-3 cursor-pointer hover:scale-105 transform transition-hover duration-300 font-inter">
 			<div className="max-w-sm rounded overflow-hidden shadow-lg">
-				{console.log(SportTypeEnum[props.sportEvent.sportType])}
-				<img className="w-full" src={SportTypeEnum[props.sportEvent.sportType]} alt="Sport event" />
+				<img
+					className="w-full h-56"
+					src={getImageByKey(SportTypeEnum[props.sportEvent.sportType])}
+					alt="Sport event"
+				/>
 				<div className="px-6 py-4">
 					<div className="font-bold text-xl mb-2">{props.sportEvent.name}</div>
 					<div className="mt-2 flex items-center text-sm text-gray-500">
@@ -62,13 +65,10 @@ export default function Event(props: { sportEvent: ISportEvent }) {
 				</div>
 				<div className="px-6 pt-4 pb-2">
 					<span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-						#football
+						#{SportTypeEnum[props.sportEvent.sportType].toLowerCase()}
 					</span>
 					<span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-						#team
-					</span>
-					<span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-						#hard
+						#{SkillLevelEnum[props.sportEvent.skillLevel].toLowerCase()}
 					</span>
 				</div>
 			</div>
