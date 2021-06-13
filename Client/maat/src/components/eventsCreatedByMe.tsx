@@ -12,8 +12,8 @@ export default function EventsCreatedByMe(props: any) {
 
 	useEffect(() => {
 		(async () => {
-			const response = await fetch(`${url}/sportevent/created`, {
-				headers: { "Content-Type": "application/json" },
+			const response = await fetch(`${url}/sportevent/my_events`, {
+				headers: { "Content-Type": "application/json", Accept: "application/json" },
 				credentials: "include",
 			});
 

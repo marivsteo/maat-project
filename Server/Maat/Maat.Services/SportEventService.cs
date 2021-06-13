@@ -1,4 +1,5 @@
 ﻿using Maat.DataAccess;
+using Maat.Domain.DTO;
 using Maat.Domain.Models;
 using Maat.Services.Abstractions;
 using Maat.Services.Exceptions;
@@ -36,16 +37,24 @@ namespace Maat.Services
             }
         }
 
-        public List<SportEvent> GetAvailableSportEvents()
+        public List<SportEvent> GetAvailableSportEvents(int userId)
         {
             var currentDateTime = DateTime.Now;
-            return _dbContext.SportEvents.Where(se => se.EventTime >= currentDateTime).OrderBy(se => se.EventTime).ToList();
+            return _dbContext.SportEvents.Where(se => se.EventTime >= currentDateTime && se.CreatedBy.Id != userId).OrderBy(se => se.EventTime).ToList();
         }
 
-        public List<SportEvent> GetSportEventsCreatedByUser(int userId)
+        public List<SportEventDto> GetSportEventsCreatedByUser(int userId)
         {
-            return _dbContext.SportEvents.Where(se => se.CreatedBy.Id == userId).ToList();
-            
+            return _dbContext.SportEvents.Where(se => se.CreatedBy.Id == userId).Select(se => new SportEventDto {
+                Name = se.Name,
+                EventTime = se.EventTime,
+                Place = se.Place,
+                NumberOfParticipatingPlayers = se.NumberOfParticipatingPlayers,
+                NumberOfPlayersNeeded = se.NumberOfPlayersNeeded,
+                IsPayingNeeded = se.IsPayingNeeded,
+                SkillLevel = se.SkillLevel,
+                SportType = se.SportType
+            }).ToList();
         }
 
         public List<SportEvent> GetParticipatingSportEvents(int userId)

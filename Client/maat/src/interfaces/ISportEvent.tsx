@@ -12,5 +12,5 @@ export interface ISportEvent {
 	isPayingNeeded: boolean;
 	skillLevel: SkillLevelEnum;
 	sportType: SportTypeEnum;
-	createdBy: IUser;
+	createdBy?: IUser;
 }

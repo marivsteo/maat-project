@@ -36,11 +36,28 @@ namespace Maat.API.Controllers
         [HttpGet]
         public ActionResult<List<SportEvent>> GetAvailableSportEvents()
         {
-            return _sportEventService.GetAvailableSportEvents();
+            User user;
+            try
+            {
+                var jwt = Request.Cookies["jwt"];
+
+                var token = _jwtService.Verify(jwt);
+
+                int userId = int.Parse(token.Issuer);
+
+                user = _userService.GetUserById(userId);
+
+            }
+            catch (Exception)
+            {
+                return Unauthorized();
+            }
+
+            return _sportEventService.GetAvailableSportEvents(user.Id);
         }
 
-        [HttpGet("created")]
-        public ActionResult<List<SportEvent>> GetSportEventsCreatedByUser()
+        [HttpGet("my_events")]
+        public ActionResult<List<SportEventDto>> GetSportEventsCreatedByUser()
         {
             User user;
             try
@@ -54,7 +71,7 @@ namespace Maat.API.Controllers
                 user = _userService.GetUserById(userId);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return Unauthorized();
             }

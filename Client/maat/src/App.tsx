@@ -15,6 +15,7 @@ import { url } from "./resources/constants";
 import MyEvents from "./components/myEvents";
 import EventsCreatedByMe from "./components/eventsCreatedByMe";
 import ParticipatingEvents from "./components/participatingEvents";
+import EventPage from "./components/eventPage";
 
 function App() {
 	const [username, setUsername] = useState("");
@@ -64,6 +65,9 @@ function App() {
 				</Route>
 				<Route path="/participating" exact>
 					<ParticipatingEvents />
+				</Route>
+				<Route path="/event" exact>
+					<EventPage sportEvent={null} />
 				</Route>
 				<Route component={Error} />
 			</Switch>
