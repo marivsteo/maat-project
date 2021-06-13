@@ -4,14 +4,16 @@ using Maat.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Maat.DataAccess.Migrations
 {
     [DbContext(typeof(MaatDbContext))]
-    partial class MaatDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210613085550_RemovedIsAvailableFromEvents")]
+    partial class RemovedIsAvailableFromEvents
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,21 +60,19 @@ namespace Maat.DataAccess.Migrations
                     b.HasIndex("CreatedById");
 
                     b.ToTable("SportEvents");
-                });
 
-            modelBuilder.Entity("Maat.Domain.Models.SportEventUser", b =>
-                {
-                    b.Property<long>("SportEventId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("SportEventId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("SportEventUsers");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            EventTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsPayingNeeded = false,
+                            Name = "Football",
+                            NumberOfParticipatingPlayers = 0,
+                            NumberOfPlayersNeeded = 0,
+                            SkillLevel = 0,
+                            SportType = 0
+                        });
                 });
 
             modelBuilder.Entity("Maat.Domain.Models.User", b =>
@@ -109,41 +109,10 @@ namespace Maat.DataAccess.Migrations
             modelBuilder.Entity("Maat.Domain.Models.SportEvent", b =>
                 {
                     b.HasOne("Maat.Domain.Models.User", "CreatedBy")
-                        .WithMany("CreatedSportEvents")
+                        .WithMany()
                         .HasForeignKey("CreatedById");
 
                     b.Navigation("CreatedBy");
-                });
-
-            modelBuilder.Entity("Maat.Domain.Models.SportEventUser", b =>
-                {
-                    b.HasOne("Maat.Domain.Models.SportEvent", "SportEvent")
-                        .WithMany("SportEventUsers")
-                        .HasForeignKey("SportEventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Maat.Domain.Models.User", "User")
-                        .WithMany("SportEventUsers")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SportEvent");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Maat.Domain.Models.SportEvent", b =>
-                {
-                    b.Navigation("SportEventUsers");
-                });
-
-            modelBuilder.Entity("Maat.Domain.Models.User", b =>
-                {
-                    b.Navigation("CreatedSportEvents");
-
-                    b.Navigation("SportEventUsers");
                 });
 #pragma warning restore 612, 618
         }

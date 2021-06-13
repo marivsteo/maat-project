@@ -12,6 +12,9 @@ import Profile from "./components/profile";
 import AddEvent from "./components/addEvent";
 import { IUser } from "./interfaces/IUser";
 import { url } from "./resources/constants";
+import MyEvents from "./components/myEvents";
+import EventsCreatedByMe from "./components/eventsCreatedByMe";
+import ParticipatingEvents from "./components/participatingEvents";
 
 function App() {
 	const [username, setUsername] = useState("");
@@ -52,6 +55,15 @@ function App() {
 				</Route>
 				<Route path="/add_event" exact>
 					<AddEvent />
+				</Route>
+				<Route path="/my_events" exact>
+					<MyEvents />
+				</Route>
+				<Route path="/created_by_me" exact>
+					<EventsCreatedByMe />
+				</Route>
+				<Route path="/participating" exact>
+					<ParticipatingEvents />
 				</Route>
 				<Route component={Error} />
 			</Switch>

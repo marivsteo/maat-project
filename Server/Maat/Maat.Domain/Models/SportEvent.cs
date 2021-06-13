@@ -11,7 +11,6 @@ namespace Maat.Domain.Models
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public bool IsAvailable { get; set; }
 
         public DateTime EventTime { get; set; }
 
@@ -28,5 +27,9 @@ namespace Maat.Domain.Models
         public SportTypeEnum SportType { get; set; }
 
         public User CreatedBy { get; set; }
+
+        public ICollection<User> Users { get; set; }
+
+        public List<SportEventUser> SportEventUsers { get; set; }
     }
 }

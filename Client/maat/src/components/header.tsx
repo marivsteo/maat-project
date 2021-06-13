@@ -12,6 +12,7 @@ export default function Header(props: { username: string; setUsername: (username
 	if (props.username !== "" && props.username !== undefined) {
 		navigation = [
 			{ name: "Events", href: "/events" },
+			{ name: "My events", href: "/my_events" },
 			{ name: "Profile", href: "/profile" },
 			{ name: "About", href: "/about" },
 		];

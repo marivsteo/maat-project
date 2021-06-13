@@ -27,36 +27,87 @@ namespace Maat.API.Controllers
             _jwtService = jwtService;
         }
 
-        [HttpGet]
-        public ActionResult<List<SportEvent>> GetSportEvents()
+        [HttpGet("all")]
+        public ActionResult<List<SportEvent>> GetAllSportEvents()
         {
-            return _sportEventService.GetSportEvents();
+            return _sportEventService.GetAllSportEvents();
+        }
+
+        [HttpGet]
+        public ActionResult<List<SportEvent>> GetAvailableSportEvents()
+        {
+            return _sportEventService.GetAvailableSportEvents();
+        }
+
+        [HttpGet("created")]
+        public ActionResult<List<SportEvent>> GetSportEventsCreatedByUser()
+        {
+            User user;
+            try
+            {
+                var jwt = Request.Cookies["jwt"];
+
+                var token = _jwtService.Verify(jwt);
+
+                int userId = int.Parse(token.Issuer);
+
+                user = _userService.GetUserById(userId);
+
+            }
+            catch (Exception e)
+            {
+                return Unauthorized();
+            }
+
+            return _sportEventService.GetSportEventsCreatedByUser(user.Id);
+        }
+
+        [HttpGet("participating")]
+        public ActionResult<List<SportEvent>> GetParticipatingSportEvents()
+        {
+            User user;
+            try
+            {
+                var jwt = Request.Cookies["jwt"];
+
+                var token = _jwtService.Verify(jwt);
+
+                int userId = int.Parse(token.Issuer);
+
+                user = _userService.GetUserById(userId);
+
+            }
+            catch (Exception e)
+            {
+                return Unauthorized();
+            }
+
+            return _sportEventService.GetParticipatingSportEvents(user.Id);
         }
 
         [HttpPost("add")]
         public IActionResult AddSportEvent([FromBody] SportEventDto sportEventDto)
         {
-            //User user = null;
-            //try
-            //{
-            //    var jwt = Request.Cookies["jwt"];
+            User user = null;
+            try
+            {
+                var jwt = Request.Cookies["jwt"];
 
-            //    var token = _jwtService.Verify(jwt);
+                var token = _jwtService.Verify(jwt);
 
-            //    int userId = int.Parse(token.Issuer);
+                int userId = int.Parse(token.Issuer);
 
-            //    user = _userService.GetUserById(userId);
+                user = _userService.GetUserById(userId);
 
-            //}
-            //catch (Exception e)
-            //{
-            //    return Unauthorized();
-            //}
+            }
+            catch (Exception e)
+            {
+                return Unauthorized();
+            }
 
             var sportEvent = new SportEvent
             {
                 Name = sportEventDto.Name,
-                IsAvailable = sportEventDto.IsAvailable,
                 EventTime = sportEventDto.EventTime,
                 Place = sportEventDto.Place,
                 NumberOfParticipatingPlayers = sportEventDto.NumberOfParticipatingPlayers,
@@ -64,7 +115,7 @@ namespace Maat.API.Controllers
                 IsPayingNeeded = sportEventDto.IsPayingNeeded,
                 SkillLevel = sportEventDto.SkillLevel,
                 SportType = sportEventDto.SportType,
-                CreatedBy = null
+                CreatedBy = user
             };
 
             try

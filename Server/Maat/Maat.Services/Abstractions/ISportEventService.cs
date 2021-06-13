@@ -9,8 +9,14 @@ namespace Maat.Services.Abstractions
 {
     public interface ISportEventService
     {
-        List<SportEvent> GetSportEvents();
+        List<SportEvent> GetAllSportEvents();
+
+        List<SportEvent> GetAvailableSportEvents();
 
         SportEvent AddSportEvent(SportEvent sportEvent);
+
+        List<SportEvent> GetSportEventsCreatedByUser(int userId);
+
+        List<SportEvent> GetParticipatingSportEvents(int userId);
     }
 }

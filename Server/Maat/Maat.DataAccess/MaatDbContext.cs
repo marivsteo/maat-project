@@ -16,17 +16,32 @@ namespace Maat.DataAccess
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<SportEventUser> SportEventUsers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<SportEvent>().HasData(
-                new SportEvent()
-                {
-                    Id = 1,
-                    Name = "Football",
-                    IsAvailable = true
-                });
-
             modelBuilder.Entity<User>(entity => { entity.HasIndex(e => e.Email).IsUnique(); });
+
+            modelBuilder.Entity<SportEvent>()
+                .HasMany(s => s.Users)
+                .WithMany(s => s.SportEvents)
+                .UsingEntity<SportEventUser>(
+                    j => j
+                        .HasOne(su => su.User)
+                        .WithMany(u => u.SportEventUsers)
+                        .HasForeignKey(su => su.UserId),
+                    j => j
+                        .HasOne(su => su.SportEvent)
+                        .WithMany(s => s.SportEventUsers)
+                        .HasForeignKey(su => su.SportEventId),
+                    j =>
+                    {
+                        j.HasKey(p => new { p.SportEventId, p.UserId });
+                    });
+
+            modelBuilder.Entity<SportEvent>()
+                .HasOne(p => p.CreatedBy)
+                .WithMany(p => p.CreatedSportEvents);
         }
     }
 }

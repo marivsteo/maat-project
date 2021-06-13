@@ -4,14 +4,16 @@ using Maat.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Maat.DataAccess.Migrations
 {
     [DbContext(typeof(MaatDbContext))]
-    partial class MaatDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210613172645_AddedSportEventUsersTable")]
+    partial class AddedSportEventUsersTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,7 +111,7 @@ namespace Maat.DataAccess.Migrations
             modelBuilder.Entity("Maat.Domain.Models.SportEvent", b =>
                 {
                     b.HasOne("Maat.Domain.Models.User", "CreatedBy")
-                        .WithMany("CreatedSportEvents")
+                        .WithMany("SportEventsCreated")
                         .HasForeignKey("CreatedById");
 
                     b.Navigation("CreatedBy");
@@ -141,7 +143,7 @@ namespace Maat.DataAccess.Migrations
 
             modelBuilder.Entity("Maat.Domain.Models.User", b =>
                 {
-                    b.Navigation("CreatedSportEvents");
+                    b.Navigation("SportEventsCreated");
 
                     b.Navigation("SportEventUsers");
                 });

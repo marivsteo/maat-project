@@ -18,7 +18,7 @@ namespace Maat.Services
         {
             _dbContext = dbContext;
         }
-        public List<SportEvent> GetSportEvents()
+        public List<SportEvent> GetAllSportEvents()
         {
             return _dbContext.SportEvents.ToList();
         }
@@ -34,8 +34,24 @@ namespace Maat.Services
             {
                 throw new AddSportEventDbException(e.Message);
             }
-            
+        }
 
+        public List<SportEvent> GetAvailableSportEvents()
+        {
+            var currentDateTime = DateTime.Now;
+            return _dbContext.SportEvents.Where(se => se.EventTime >= currentDateTime).OrderBy(se => se.EventTime).ToList();
+        }
+
+        public List<SportEvent> GetSportEventsCreatedByUser(int userId)
+        {
+            return _dbContext.SportEvents.Where(se => se.CreatedBy.Id == userId).ToList();
+            
+        }
+
+        public List<SportEvent> GetParticipatingSportEvents(int userId)
+        {
+            var sportEventsIds = _dbContext.SportEventUsers.Where(u => u.UserId == userId).Select(se => se.SportEventId);
+            return _dbContext.SportEvents.Where(se => sportEventsIds.Any(s => s == se.Id)).ToList();
         }
     }
 }

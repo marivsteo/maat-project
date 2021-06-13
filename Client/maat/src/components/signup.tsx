@@ -264,10 +264,9 @@ export default function Signup() {
 									id="birthday"
 									name="birthday"
 									type="date"
-									max={Date.now.toString()}
+									max={new Date().toISOString().split(".")[0]}
 									required
 									className="mt-2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-400 focus:border-secondary-500 focus:z-10 sm:text-sm"
-									placeholder="Enter a username."
 									onChange={(e) =>
 										setDateOfBirth({ value: e.target.value, error: dateOfBirth.error })
 									}

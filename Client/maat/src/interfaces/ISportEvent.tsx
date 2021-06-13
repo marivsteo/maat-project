@@ -5,7 +5,6 @@ import { IUser } from "./IUser";
 
 export interface ISportEvent {
 	name: string;
-	isAvailable: boolean;
 	eventTime: Date;
 	place: string;
 	numberOfParticipatingPlayers: number;

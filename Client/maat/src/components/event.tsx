@@ -18,7 +18,7 @@ export default function Event(props: { sportEvent: ISportEvent }) {
 		<div className="mx-3 my-3 cursor-pointer hover:scale-105 transform transition-hover duration-300 font-inter">
 			<div className="max-w-sm rounded overflow-hidden shadow-lg">
 				<img
-					className="w-full h-56"
+					className="w-full h-1/4"
 					src={getImageByKey(SportTypeEnum[props.sportEvent.sportType])}
 					alt="Sport event"
 				/>
@@ -39,12 +39,12 @@ export default function Event(props: { sportEvent: ISportEvent }) {
 					{props.sportEvent.numberOfPlayersNeeded <= 2 ? (
 						<div className="mt-2 flex items-center text-sm text-gray-500">
 							<UsersIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-							{props.sportEvent.numberOfPlayersNeeded} more player(s) needed
+							{props.sportEvent.numberOfPlayersNeeded} more participant(s) needed
 						</div>
 					) : (
 						<div className="mt-2 flex items-center text-sm text-gray-500">
 							<UserGroupIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-							{props.sportEvent.numberOfPlayersNeeded} more players needed
+							{props.sportEvent.numberOfPlayersNeeded} more participants needed
 						</div>
 					)}
 

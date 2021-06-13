@@ -11,7 +11,6 @@ namespace Maat.Domain.DTO
     public class SportEventDto
     {
         public string Name { get; set; }
-        public bool IsAvailable { get; set; }
 
         public DateTime EventTime { get; set; }
 
