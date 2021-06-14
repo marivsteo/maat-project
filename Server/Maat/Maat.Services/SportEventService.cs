@@ -3,6 +3,9 @@ using Maat.Domain.DTO;
 using Maat.Domain.Models;
 using Maat.Services.Abstractions;
 using Maat.Services.Exceptions;
+using MailKit.Net.Smtp;
+using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,8 +79,10 @@ namespace Maat.Services
             {
                 throw new AddSportEventParticipationException("Can't participate in the same event twice!");
             }
-            var sportEvent = _dbContext.SportEvents.FirstOrDefault(se => se.Id == eventId);
+
+            var sportEvent = _dbContext.SportEvents.Include(se => se.CreatedBy).FirstOrDefault(se => se.Id == eventId);
             var user = _dbContext.Users.FirstOrDefault(u => u.Id == userId);
+
             SportEventUser entry = new()
             {
                 User = user,
@@ -94,6 +99,24 @@ namespace Maat.Services
             catch (Exception e)
             {
                 throw new AddSportEventParticipationException(e.Message);
+            }
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Maat", "marius.gabriel.teodorescu@stud.ubbcluj.ro"));
+            message.To.Add(new MailboxAddress("User", sportEvent.CreatedBy.Email));
+            message.Subject = "Your event just got a new participant!";
+            message.Body = new TextPart("plain")
+            {
+                Text = $"We have great news! A user decided to participate at your event! \n We are talking about your {sportEvent.Name} that takes place on {sportEvent.EventTime}. You can contact your potential player at {sportEvent.CreatedBy.Email}"
+            };
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp-mail.outlook.com", 587, false);
+                client.Authenticate("marius.gabriel.teodorescu@stud.ubbcluj.ro", "303936Parola0");
+
+                client.Send(message);
+
+                client.Disconnect(true);
             }
         }
     }

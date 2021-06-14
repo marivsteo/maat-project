@@ -186,6 +186,10 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.2, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[2.13.0, )"
             }
           },
           "imports": [

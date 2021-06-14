@@ -15,25 +15,25 @@ const features = [
 	{
 		name: "Helps you find friends",
 		description:
-			"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+			"Our goal is to make the world a better place. Whether you're in a new city or all your friends have moved from the place you've always lived in, we can help you find people with more or less the same interests.",
 		icon: UserGroupIcon,
 	},
 	{
 		name: "Just a few clicks",
 		description:
-			"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+			"Every website nowadays claims it's supposedly easy to use. We really deliver on that promise. Simply create events, check available ones and choose in which you would like to take part. We have a beautiful site, but we don't want you to lose time on it.",
 		icon: CursorClickIcon,
 	},
 	{
-		name: "Find someone in no time",
+		name: "Be healthier and more active",
 		description:
-			"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+			"It's important to be active. We won't quote fancy studies that show how exercising improves your life, but we all know the truth. We created Maat because we love sports (and we love you too, but don't tell anybody ❤)",
 		icon: LightningBoltIcon,
 	},
 	{
 		name: "Reach goals together",
 		description:
-			"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+			"Want to run a marathon? We hate to be the ones to break it to you, but others want the same thing. Why not motivate each other and reach your goals faster because of accountabililty? We found no reason why not.",
 		icon: FlagIcon,
 	},
 ];
