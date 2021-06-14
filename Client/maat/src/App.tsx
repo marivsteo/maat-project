@@ -66,8 +66,8 @@ function App() {
 				<Route path="/participating" exact>
 					<ParticipatingEvents />
 				</Route>
-				<Route path="/event" exact>
-					<EventPage sportEvent={null} />
+				<Route path="/event/:id">
+					<EventPage />
 				</Route>
 				<Route component={Error} />
 			</Switch>

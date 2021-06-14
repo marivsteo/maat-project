@@ -4,6 +4,7 @@ import { SportTypeEnum } from "../enums/sportTypeEnum";
 import { IUser } from "./IUser";
 
 export interface ISportEvent {
+	id?: number;
 	name: string;
 	eventTime: Date;
 	place: string;

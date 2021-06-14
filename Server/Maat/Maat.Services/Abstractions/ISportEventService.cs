@@ -19,5 +19,9 @@ namespace Maat.Services.Abstractions
         List<SportEventDto> GetSportEventsCreatedByUser(int userId);
 
         List<SportEvent> GetParticipatingSportEvents(int userId);
+
+        SportEvent GetSportEventById(int eventId);
+
+        void AddSportEventParticipation(int eventId, int userId);
     }
 }

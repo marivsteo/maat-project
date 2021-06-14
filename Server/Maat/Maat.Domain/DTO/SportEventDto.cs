@@ -10,6 +10,7 @@ namespace Maat.Domain.DTO
 {
     public class SportEventDto
     {
+        public long Id { get; set; }
         public string Name { get; set; }
 
         public DateTime EventTime { get; set; }

@@ -142,7 +142,7 @@ export default function AddEvent() {
 	};
 
 	if (redirect) {
-		return <Redirect to="/events" />;
+		return <Redirect to="/created_by_me" />;
 	}
 	return (
 		<div>

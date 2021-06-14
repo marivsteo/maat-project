@@ -50,7 +50,7 @@ namespace Maat.API.Controllers
             }
             catch (Exception)
             {
-                return Unauthorized();
+                return _sportEventService.GetAllSportEvents();
             }
 
             return _sportEventService.GetAvailableSportEvents(user.Id);
@@ -102,6 +102,37 @@ namespace Maat.API.Controllers
             return _sportEventService.GetParticipatingSportEvents(user.Id);
         }
 
+        [HttpPost("participate/{eventId}")]
+        public IActionResult ParticipateAtEvent(int eventId)
+        {
+            User user;
+            try
+            {
+                var jwt = Request.Cookies["jwt"];
+
+                var token = _jwtService.Verify(jwt);
+
+                int userId = int.Parse(token.Issuer);
+
+                user = _userService.GetUserById(userId);
+
+            }
+            catch (Exception)
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                _sportEventService.AddSportEventParticipation(eventId, user.Id);
+                return Ok("Sport event participation created");
+            }
+            catch (AddSportEventParticipationException e)
+            {
+                return StatusCode(409, e.Message);
+            }
+        }
+
         [HttpPost("add")]
         public IActionResult AddSportEvent([FromBody] SportEventDto sportEventDto)
         {
@@ -143,6 +174,12 @@ namespace Maat.API.Controllers
             {
                 return StatusCode(409);
             }
+        }
+
+        [HttpGet("get_by_id/{id}")]
+        public ActionResult<SportEvent> GetSportEventById(int id)
+        {
+            return _sportEventService.GetSportEventById(id);
         }
     }
 }
