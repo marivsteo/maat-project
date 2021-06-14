@@ -11,7 +11,7 @@ export default function Footer() {
 								<img className="mt-10 mx-auto w-44" src={`/images/footer.png`} alt="" />
 							</Link>
 						</div>
-						<div className="flex mt-10 mx-auto sm:flex-col md:flex-row">
+						<div className="flex mt-10 mx-auto flex-col md:flex-row">
 							<span className="sm:my-2 md:mx-4">
 								<Link to="/about" className="text-white-700 text-md hover:text-white-500">
 									About
