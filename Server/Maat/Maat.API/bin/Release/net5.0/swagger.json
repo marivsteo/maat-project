@@ -1,0 +1,468 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Maat.API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RegisterDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LoginDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Auth/user": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Auth/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SportEvent/all": {
+      "get": {
+        "tags": [
+          "SportEvent"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SportEvent"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SportEvent": {
+      "get": {
+        "tags": [
+          "SportEvent"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SportEvent"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SportEvent/my_events": {
+      "get": {
+        "tags": [
+          "SportEvent"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SportEventDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SportEvent/participating": {
+      "get": {
+        "tags": [
+          "SportEvent"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SportEvent"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SportEvent/participate/{eventId}": {
+      "post": {
+        "tags": [
+          "SportEvent"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "eventId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SportEvent/add": {
+      "post": {
+        "tags": [
+          "SportEvent"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SportEventDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SportEvent/get_by_id/{id}": {
+      "get": {
+        "tags": [
+          "SportEvent"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SportEvent"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "RegisterDto": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "gender": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "LoginDto": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "SkillLevelEnum": {
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "type": "integer"
+    },
+    "SportTypeEnum": {
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "type": "integer"
+    },
+    "GenderEnum": {
+      "format": "int32",
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer"
+    },
+    "SportEventUser": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/User"
+        },
+        "userId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sportEvent": {
+          "$ref": "#/definitions/SportEvent"
+        },
+        "sportEventId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "gender": {
+          "$ref": "#/definitions/GenderEnum"
+        },
+        "sportEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SportEvent"
+          }
+        },
+        "sportEventUsers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SportEventUser"
+          }
+        },
+        "createdSportEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SportEvent"
+          }
+        }
+      }
+    },
+    "SportEvent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "eventTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "place": {
+          "type": "string"
+        },
+        "numberOfParticipatingPlayers": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numberOfPlayersNeeded": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isPayingNeeded": {
+          "type": "boolean"
+        },
+        "skillLevel": {
+          "$ref": "#/definitions/SkillLevelEnum"
+        },
+        "sportType": {
+          "$ref": "#/definitions/SportTypeEnum"
+        },
+        "createdBy": {
+          "$ref": "#/definitions/User"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "sportEventUsers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SportEventUser"
+          }
+        }
+      }
+    },
+    "SportEventDto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "eventTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "place": {
+          "type": "string"
+        },
+        "numberOfParticipatingPlayers": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numberOfPlayersNeeded": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isPayingNeeded": {
+          "type": "boolean"
+        },
+        "skillLevel": {
+          "$ref": "#/definitions/SkillLevelEnum"
+        },
+        "sportType": {
+          "$ref": "#/definitions/SportTypeEnum"
+        }
+      }
+    }
+  }
+}

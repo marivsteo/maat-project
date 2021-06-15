@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj",
       "projectName": "Maat.Domain",
-      "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj",
+      "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.Domain\\Maat.Domain.csproj",
       "packagesPath": "C:\\Users\\Marius\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Domain\\obj\\",
+      "outputPath": "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Marius\\AppData\\Roaming\\NuGet\\NuGet.Config",

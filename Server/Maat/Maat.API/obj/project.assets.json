@@ -8215,11 +8215,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.API\\Maat.API.csproj",
+      "projectUniqueName": "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.API\\Maat.API.csproj",
       "projectName": "Maat.API",
-      "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.API\\Maat.API.csproj",
+      "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.API\\Maat.API.csproj",
       "packagesPath": "C:\\Users\\Marius\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.API\\obj\\",
+      "outputPath": "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Marius\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8236,11 +8236,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj"
+            "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.DataAccess\\Maat.DataAccess.csproj"
             },
-            "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Services\\Maat.Services.csproj": {
-              "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Services\\Maat.Services.csproj"
+            "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.Services\\Maat.Services.csproj": {
+              "projectPath": "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.Services\\Maat.Services.csproj"
             }
           }
         }

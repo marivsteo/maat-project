@@ -6,7 +6,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhc/vsQnOCE+oBp530ntzSwAAAAACAAAAAAAQZgAAAAEAACAAAABOfgsqGz2S/YU9ofViYCqbGizDgVhHDozSQmuxNuchvwAAAAAOgAAAAAIAACAAAAAobNFQ5WiHSM8yXuCXuAx7CiFKolxwD6DFWaUdpofc24AAAABJC8OY5oA3ZbjcLxzhGaIMsw3jC7aoH8qwfZd5aDAVUkLDXSu2Ssr/rCEYmBnw7RRfuYQuW0MN1CJjcYqoygyY3iXzpPqpWjurGtaVTnHnJPkX3QGxom6FBJ6HkdKE3bYTzQSiFcrk80AB6djQscM0iGz8q/SBuN8n0F6dcLjnAUAAAAAaGYG5HmcV/bG5lGQsW3KEXftHPnIMhjO1FODJ4uJwQfwrYtcrMgTXKEH9s6AS7Sm9IHyoyOiSU94jA1sq/mPT</EncryptedPassword>
-    <History>False|2021-06-14T18:43:47.2346147Z;False|2021-06-14T21:40:45.4585114+03:00;False|2021-06-14T21:39:07.0215864+03:00;False|2021-06-14T21:35:37.7651780+03:00;</History>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhc/vsQnOCE+oBp530ntzSwAAAAACAAAAAAAQZgAAAAEAACAAAADRE6r3toMufsAsbLhe8mtzynkjD+YZOlYEq84q/1iKsAAAAAAOgAAAAAIAACAAAAC+/QVwn1hvtjHMSeQeXXt88/JuBEMLA6S1b5RMl4QrBIAAAAA4FMrx6ZMFcUNldGR/TZgmJzkTN7eKk8lQKGBT3XqddlLWvx8DMTKnqC6xhUHXnBi6t4KJ3+OidcaegASv8wMQjWBVa3eCOTgH1RylwgzkPms/Kwce3xrkqCXB9h9adhsGf5J6AvLszQwixOG/n5vQcgyS/weF5RcQJzDkF+mE40AAAAC4VbqvPXNaWK2FtkfBCIIBqIr4ZejlalTLoot8WVoKy11miCTVEhG1Fe4xoWXecCDN31lnB3HoSV/mBoWVUrZ8</EncryptedPassword>
+    <History>False|2021-06-15T06:09:28.8353667Z;True|2021-06-15T09:07:56.8396997+03:00;</History>
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:maat-api-db-server.database.windows.net,1433%3bInitial Catalog=Maat.API_db%3bUser Id=marius%40maat-api-db-server%3bPassword=19Abracadabra06!</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Maat.DataAccess.MaatDbContext">
+      <Value>Data Source=tcp:maat-api-db-server.database.windows.net,1433%3bInitial Catalog=Maat.API_db%3bUser Id=marius%40maat-api-db-server%3bPassword=19Abracadabra06!</Value>
+    </EFMigrations>
+  </ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1m7LJuOJOoEa0+c8EVV9snDHOHl1ec5I4tlEN42ozYWxzKCjsWPeTsyeO9jfTCcHuoHaj91V2fcSi6mohMp0Zg==",
+  "dgSpecHash": "5lwWtcYwTW60TGPq4THJVfFTvAPD5hBC5bAacwTY5r9TZqEJoRFL6BCNvtfT7CAavnuKu0NsXsLVtzzYNodblg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.API\\Maat.API.csproj",
+  "projectFilePath": "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.API\\Maat.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marius\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\Marius\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

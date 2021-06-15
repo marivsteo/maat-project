@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n5YC/cam+oNT5V2Jzx8rnZak1jTiQ/afYdh04EVG941PsUprVnQFfKMeANxH6laJ8O5355l/LywyWl6XzDem5Q==",
+  "dgSpecHash": "tfYw35bTtM48LxpQ1HUzu3yQIrS5zjGtP6oqBEG9oA7L6GWSaICHzMaFWnAyY9Nog/X3M6qQ2W6/8yAQLYqyTg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marius\\Desktop\\bachelor thesis\\App\\Server\\Maat\\Maat.Services\\Maat.Services.csproj",
+  "projectFilePath": "C:\\Users\\Marius\\Desktop\\bachelor_thesis\\App\\Server\\Maat\\Maat.Services\\Maat.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marius\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\Marius\\.nuget\\packages\\mailkit\\2.13.0\\mailkit.2.13.0.nupkg.sha512",
